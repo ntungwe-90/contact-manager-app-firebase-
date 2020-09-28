@@ -1,0 +1,43 @@
+nav{
+	width: 100vw;
+	
+	background-color: black;
+	grid-area: nav; 
+}
+a:hover{
+	background-color:yellowgreen;
+}
+.nav-content{
+	text-align: right;
+
+}
+
+
+form {
+	grid-area: form;
+	text-align: left;
+	padding: 50px 2vw;
+}
+
+form label {
+	text-transform: capitalize;
+}
+
+form input:not([type="radio"]),
+form button[type="submit"] {
+	display: block;
+	margin: .5rem 0 1rem 0;
+	padding: 9px;
+	width: 80%;
+}
+
+form button[type="submit"] {
+	margin-top: 3rem;
+}
+
+.App > *:last-child {
+	grid-area: users;
+	
+  overflow: auto;
+  height: calc(100vh - 85px);
+}
