@@ -1,7 +1,7 @@
 import './App.css';
 import Navbar from './Navbar';
 import React, { Component } from 'react';
-import {addUser, deleteUser} from './store/UsersAction';
+import {addUser, deleteUser, getAllUsers} from './store/UsersAction';
 import { connect } from 'react-redux';
 import ContactForm from  './components/ContactForm';
 import UsersInfo from './components/UsersInfo';
@@ -15,6 +15,10 @@ export class App extends Component {
     this.props.deleteUser(user_id);
   }
    
+ componentDidMount(){
+  this.props.getAllUsers();
+ }
+
 render(){
   return (
     <div className = "App">
@@ -53,8 +57,9 @@ render(){
     } );
 
     const mapDispatchToProps = {
-      addUser:addUser,
-      deleteUser:deleteUser
+      addUser,
+      deleteUser,
+      getAllUsers,
     }
  
  

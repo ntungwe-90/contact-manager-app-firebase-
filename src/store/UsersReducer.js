@@ -1,33 +1,9 @@
 import {v4 as uuid} from 'uuid';
 
 const  initialState = {
-    users : [
-        {
-          id: "1",
-          name: "Calvin",
-         email: "calvin@email.com",
-         tell: "14", 
-        },
-
-        {
-          id:"2",
-          name: "Doreen",
-         email: "doreen@email.com",
-         tell: "14", 
-        },
-
-        {
-          id: "3",
-          name: "Irene",
-          email: "irene@email.com",
-          tell: "14", 
-        }
-      ]
+    users : [],     
     
 };
-
-
-
 
 const UsersReducers = (state = initialState, action) => {
     switch(action.type) {
@@ -52,6 +28,8 @@ const UsersReducers = (state = initialState, action) => {
                }
              });
               return {...state, users: editedUsers}
+              case 'SET_ALL_USERS':
+                return {users: action.payload};
               default:
                 return state;
             }
