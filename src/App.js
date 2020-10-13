@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import React, { Component } from 'react';
 import {addUser, deleteUser, getAllUsers} from './store/UsersAction';
 import { connect } from 'react-redux';
+import { LogoutUser} from './store/authActions';
 import ContactForm from  './components/ContactForm';
 import UsersInfo from './components/UsersInfo';
 
@@ -22,6 +23,7 @@ export class App extends Component {
 render(){
   return (
     <div className = "App">
+      <button onClick={this.props.LogoutUser}>Log Out</button>
       <Navbar />
      <ContactForm addUser = {this.addNewUser}/>
       
@@ -51,15 +53,22 @@ render(){
  
 
 
-  const mapStateToProps = (state) => (
-    {
-      users: state.users
-    } );
+  // const mapStateToProps = (state) => (
+  //   {
+  //     users: state.users
+  //   } );
+  const mapStateToProps = (state) => {
+    console.log(state);
+    return {  
+    users: state.usersState.users,
+  };
+};
 
     const mapDispatchToProps = {
       addUser,
       deleteUser,
       getAllUsers,
+      LogoutUser,
     }
  
  
